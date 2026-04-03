@@ -2,6 +2,15 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
+  <!-- Dwingt subresources naar HTTPS; helpt tegen mixed content. Echt certificaat regelt de host (GitHub Pages = automatisch HTTPS). -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <script>
+    (function () {
+      if (location.protocol === "http:" && location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Creativity Webdesign" />
